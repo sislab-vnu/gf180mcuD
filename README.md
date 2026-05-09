@@ -1,54 +1,61 @@
-# Exercise 1 - Let's Implement a Counter
+# Exercise 1 - Let's Implement a 32-bit Counter (GF180MCUD)
+
+> Adapted from [HeiChips 2025 LibreLane Workshop](https://github.com/FPGA-Research/heichips25-workshop)  
+> PDK: **gf180mcuD** (GlobalFoundries 180nm) | Design: **32-bit counter**
 
 ## 1.1 - Run LibreLane
 
-We start the first exercise by implementing a simple counter. Make sure you have a shell with LibreLane enabled, and run the following command in this folder:
+We start the first exercise by implementing a 32-bit counter. Make sure you have the `librelane` conda environment activated, and run the following command in the `exercise_1` folder:
 
+```bash
+librelane --pdk gf180mcuD config_gf180.yaml
 ```
-librelane --pdk ihp-sg13g2 config.yaml
-```
 
-By now, a lot of text should be scrolling by. While we wait, let me explain a few things:
+This command invokes LibreLane with the **gf180mcuD** PDK and the `config_gf180.yaml` configuration file.
 
-This command invokes LibreLane with the ihp-sg13g2 PDK and the `config.yaml` configuration file.
+> **PDK** stands for Process Design Kit and contains everything needed for chip design.
+> We use **gf180mcuD** (GlobalFoundries 180nm CMOS) — the same PDK used for the SSCS Open-Source Chipathon.
+> As of now the supported PDK families in LibreLane are `sky130`, `gf180mcu` and `ihp-sg13g2`.
 
-> [!TIP]
-> PDK stands for Process Design Kit and contains everything that we need for chip design.
-> Normally, PDKs are only available under a Non-Disclosure Agreement (NDA), however thankfully there are open source PDKs that we can use for chip design.
+LibreLane automatically manages the PDK via [Ciel](https://github.com/fossi-foundation/ciel), downloading it to `~/.ciel/` on the first run.
 
-We choose ihp-sg13g2 for HeiChips as the chip is going to be designed with the [IHP Open PDK](https://github.com/IHP-GmbH/IHP-Open-PDK) (ihp-sg13g2) to be manufactured using the [SG13G2](https://www.ihp-microelectronics.com/de/leistungen/forschungs-und-prototyping-service/mpw-prototyping-service/sigec-bicmos-technologien) process.
-
-> [!NOTE]
-> As of now the supported PDK families are sky130, gf180mcu and ihp-sg13g2.
-
-By default LibreLane will manage the PDK for you. That includes selecting the right version of the PDK and downloading it. The default `PDK_ROOT` (the directory where all PDKs are stored) is in your home directory under `~/.ciel`. Why ciel?
-
-[Ciel](https://github.com/fossi-foundation/ciel) is a version manager and builder for open-source PDKs. LibreLane uses ciel to manage the PDK that you have selected. By default LibreLane uses `sky130A` as the PDK, thus we changed it using `--pdk ihp-sg13g2`.
-
-If you want to select a specific version of a PDK, you can tell LibreLane to do so with `--manual-pdk`. LibreLane will then use the `PDK_ROOT` and `PDK` environment variables, or the `--pdk-root` and `--pdk` arguments to find the PDK.
-
-LibreLane supports a variety of configuration file formats such as `.tcl`, `.json` and `.yaml`. In this exercise you can find the `config.yaml` configuration file with a minimal configuration:
+The `config_gf180.yaml` configuration file contains:
 
 ```yaml
 DESIGN_NAME: counter
-VERILOG_FILES: dir::counter.sv
+VERILOG_FILES: dir::counter32.sv
 CLOCK_PORT: clk_i
-CLOCK_PERIOD: 10 # 10ns = 100MHz
+CLOCK_PERIOD: 25   # 25ns = 40MHz (GF180 is slower than IHP SG13G2)
+STD_CELL_LIBRARY: gf180mcu_fd_sc_mcu7t5v0
+DIE_AREA:  [0, 0, 80, 80]
+CORE_AREA: [5, 5, 75, 75]
+FP_CORE_UTIL: 40
 ```
 
-The `DESIGN_NAME` is the top-level module of your design, in this case `counter`. `VERILOG_FILES` specifices all source files for your design. This can be a list of files, or even a wildcard such as `dir::path/to/my/files/*.sv`.
-`CLOCK_PORT` is the, well, clock port of your design and `CLOCK_PERIOD` specifies at which clock period the design should operate at. LibreLane will use this information to run CTS (Clock Tree Synthesis) and set up the default SDC (Synopsys Design Constraint) file. For larger designs it could happen that the 100MHz are not achievable and LibreLane will report an error.
+Key differences from the original workshop config:
+- `CLOCK_PERIOD: 25` instead of `10` — GF180 180nm is slower than IHP SG13G2 130nm
+- `STD_CELL_LIBRARY: gf180mcu_fd_sc_mcu7t5v0` — 7-track 5V standard cell library of GF180MCU
 
-> [!TIP]
-> LibreLane supports a vast number of variables to fully customize the design for your needs: https://librelane.readthedocs.io/en/latest/reference/step_config_vars.html
+The RTL design `counter32.sv` is a 32-bit synchronous counter (expanded from the original 8-bit):
 
+```systemverilog
+module counter (
+    input  logic        clk_i,
+    input  logic        rst_ni,   // active-low reset
+    output logic [31:0] count_o   // 32-bit (original was [7:0])
+);
+    always_ff @(posedge clk_i or negedge rst_ni) begin
+        if (!rst_ni)
+            count_o <= 32'h0;
+        else
+            count_o <= count_o + 32'h1;
+    end
+endmodule
+```
 
-LibreLane runs the default [`Classic`](https://github.com/librelane/librelane/blob/d96f32212d025acd1d7acf01f395951cf3d4aa12/librelane/flows/classic.py#L31) flow which is the right choice for most designs. The flow consists of individual steps such as `Yosys.Synthesis` to synthesize your design, `OpenROAD.Floorplan` to create the boundaries of your design, `OpenROAD.GlobalPlacement` to place the standard cells (globally), and more.
+LibreLane runs the default [`Classic`](https://github.com/librelane/librelane/blob/main/librelane/flows/classic.py) flow, which includes steps such as `Verilator.Lint`, `Yosys.Synthesis`, `OpenROAD.Floorplan`, `OpenROAD.GlobalPlacement`, `OpenROAD.CTS`, `OpenROAD.Routing`, `Magic.DRC`, and `Netgen.LVS`.
 
-After the flow has completed, LibreLane gives you a summary of potential errors, antenna violations, as well as DRC and LVS errors.
-
-By now, LibreLane should be finished implementing the counter.
-You should see the following green checkmarks:
+After the flow completes (80/80 steps), you should see:
 
 ```
 * Antenna
@@ -59,84 +66,121 @@ Passed ✅
 
 * DRC
 Passed ✅
-``` 
+```
 
-Along with maybe some warnings (which can be ignored in this case).
+Congratulations! You have implemented your first GF180MCUD design 🎉
 
-Congratulations! You have implemented your first design 🎉
+---
 
 ## 1.2 - View Your Design
 
-It would be quite boring if that was all. Luckily we can visualize the design using OpenROAD GUI and KLayout.
-
 ### 1.2.1 OpenROAD GUI
 
-[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD) is used by LibreLane to perform the physical design steps. It also has a GUI with which you can view and debug a design.
+[OpenROAD](https://github.com/The-OpenROAD-Project/OpenROAD) is used by LibreLane for physical design steps. To open the GUI:
 
-To open OpenROAD GUI, simply run the same command again with some additional arguments:
-
-```
-librelane --pdk ihp-sg13g2 config.yaml --last-run --flow OpenInOpenROAD 
+```bash
+librelane --pdk gf180mcuD config_gf180.yaml --last-run --flow OpenInOpenROAD
 ```
 
-`--last-run` tells LibreLane to re-use the last run folder with the latest state (we will talk about the run folder shortly). And `--flow OpenInOpenROAD` tells LibreLane to use the `OpenInOpenROAD` flow instead of the `Classic` flow for implementing designs.
+`--last-run` reuses the latest run folder. `--flow OpenInOpenROAD` opens the design in the GUI instead of re-running the full flow.
 
-![The design in OpenROAD GUI](img/openroad_gui_1.png)
+![OpenROAD GUI - GF180MCUD 32-bit counter layout](img/openroad_gui_1.png)
 
-You should see a similar view as in this image. In the center is your design with the display control on the left and the inspector on the right.
+In the center is your design with display controls on the left and the inspector on the right. You can disable layers, select cells, enable heatmaps, and more.
 
-Take your time to discover all the features of OpenROAD GUI: you can disable certain layers, select cells, enable heatmaps and so on.
-If you build larger designs, you will spend a lot of time in the GUI debugging certain problems.
+**Clock Tree Viewer:** Open via "Windows" → "Clock Tree Viewer" → click "Update".
 
-One important point is the clock tree of your design. View it using the "Clock Tree Viewer". If not open, you can enable it in the top menu at "Windows" → "Clock Tree Viewer".
+![Clock Tree - 32 flip-flops for 32-bit counter](img/openroad_gui_2.png)
 
-Click on "Update" and you should see the following:
+Unlike the 8-bit counter (8 flip-flops), the 32-bit counter has **32 flip-flops** as leaves of the clock tree, resulting in a deeper/wider clock distribution network.
 
-![Clock tree](img/openroad_gui_2.png)
+**Timing Report:** Open via "Windows" → "Timing Report" → click "Update".
 
-Well, there's not much to see here because the design is so small. At the top is the root buffer (red triangle) followed by three other buffers (blue triangles). The leaves of the clock tree are connected to 8 flip-flops, one for each bit of the counter.
-Notice how the clock traces in your design are now in color.
+![Timing Report - setup/hold paths](img/openroad_gui_3.png)
 
-You can also view the timing paths of your design, open the "Timing Report" if not yet open: "Windows" → "Timing Report".
-
-Click on "Update" and you can select a path:
-
-![Timing report](img/openroad_gui_3.png)
-
-> [!TIP]
-> If you want to export your design in high resolution on a white background, just set "Display Control" → "Misc" → "Background" to white and run `save_image image.png -width 4096` in "Scripting". For the clock tree you can use: `save_clocktree_image`.
+> **Tip:** To export a high-resolution image, set "Display Control" → "Misc" → "Background" to white, then run in the Scripting console:
+> ```tcl
+> save_image image.png -width 4096
+> ```
 
 ### 1.2.2 KLayout
 
-While OpenROAD GUI opens the ODB (OpenDB) of your design, KLayout will load the LEF/DEF or the GDS of your design, containing all geometry information.
+KLayout loads the GDS/DEF of your design containing all geometry information. To open:
 
-To open your design in KLayout run:
-
-```
-librelane --pdk ihp-sg13g2 config.yaml --last-run --flow OpenInKLayout
+```bash
+librelane --pdk gf180mcuD config_gf180.yaml --last-run --flow OpenInKLayout
 ```
 
-This should open the following window:
+![KLayout - GF180MCUD layers and cell placement](img/klayout_1.png)
 
-![KLayout](img/klayout_1.png)
+In the center is your design, on the left is the cell hierarchy, and on the right are the **GF180MCUD metal layers** (Metal1–Metal5, Via1–Via4, etc.) — these are the actual layers sent to GlobalFoundries for fabrication.
 
-In the center you can see your design, on the left a hierarchy of the cells, and on the right the layers of ihp-sg13g2.
+Note that GF180MCUD has a different layer stack compared to IHP SG13G2 — you will see layers prefixed with `Metal1`, `Metal2`, ... up to `Metal5` (5-metal process).
 
-These are the layers (at least many of them) which are then sent to the foundry for manufacturing.
+---
 
-In KLayout you could also run DRC (Design Rule Check) and LVS (Layout Versus Schematic), however, LibreLane does this already for you as the final implementation checks.
+## 1.3 - Discover the `runs/` Directory
 
-Try to zoom in on the cells, select individual layers, and take measurements using the ruler.
+After running LibreLane, a `runs/` directory is created in your project folder. Inside you will find run tags such as `RUN_2026-05-09_22-30-49`.
 
-## 1.3 - Discover the `run/` Directory
+Within each run tag:
 
-You may have noticed that a new directory was created while LibreLane was running: the `run/` directory.
+```
+runs/RUN_2026-05-09_22-30-49/
+├── flow.log                          ← full log of the entire flow
+├── errors.log                        ← only errors
+├── warnings.log                      ← only warnings
+├── 01-verilator-lint/
+├── 05-yosys-jsonheader/
+│   └── *.json                        ← synthesized module info
+├── 08-yosys-synthesis/
+│   └── *.nl.v                        ← synthesized netlist
+├── 13-openroad-floorplan/
+│   ├── state_in.json                 ← input state
+│   ├── state_out.json                ← output state
+│   ├── counter.odb                   ← OpenDB layout database
+│   ├── counter.nl.v                  ← unpowered netlist
+│   └── counter.pnl.v                 ← powered netlist
+└── ...
+```
 
-If you take a look inside, you will see a number of run tags, such as `RUN_2025-07-31_13-49-44`, for each run you started.
+Each step takes `state_in.json`, processes it, and outputs `state_out.json`. For debugging, inspect the directory of the failing step.
 
-Within these runs tags are the flow log, the error and the warning file, as well as directories for each step executed.
+**Cell statistics for the 32-bit GF180MCUD counter** (from `13-openroad-floorplan` log):
 
-For example, if you open `13-openroad-floorplan`, you will find the input state (`state_in.json`), the output state (`state_out.json`) and a number of artifacts such as the `.odb` file of your design or the unpowered and powered netlist (`.nl.v` and `.pnl.v`).
-Each step takes the input state, operates on it (possibly creating new files), and finally creates the output state.
+| Cell Type | Count | Area (µm²) |
+|-----------|-------|------------|
+| Inverter | 9 | 79.03 |
+| Sequential (FF) | 32 | 2388.38 |
+| Multi-input combinational | 73 | 1475.17 |
+| **Total** | **114** | **3942.58** |
 
-For debugging purposes, it is very useful to have a look at the directory of the step that is failing.
+The 32 sequential cells correspond exactly to the 32 flip-flops of our 32-bit counter.
+
+---
+
+## Setup (Ubuntu + Miniconda)
+
+Unlike the original workshop which uses Nix, this adapted version uses Miniconda:
+
+```bash
+# Install Miniconda
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/unic-cass
+source $HOME/unic-cass/bin/activate
+
+# Create environment and install tools
+conda create -n librelane python==3.12 -y
+conda activate librelane
+conda install duyhieu/label/ci-master-1::netgen \
+              duyhieu/label/ci-master-1::magic \
+              duyhieu/label/ci-master-1::openroad \
+              duyhieu/label/ci-master-1::klayout \
+              duyhieu/label/ci-master-1::verilator \
+              duyhieu/label/ci-master-1::yosys
+pip3 install librelane
+```
+
+---
+
+*Based on HeiChips 2025 LibreLane Workshop (CC-BY-SA-4.0, Leo Moser) — adapted for GF180MCUD by [Phong / VNU-ICTC Lab]*
