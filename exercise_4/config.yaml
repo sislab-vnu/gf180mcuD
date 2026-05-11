@@ -1,0 +1,77 @@
+
+# LibreLane configuration file for GF180
+
+DESIGN_NAME: counter_32bit
+VERILOG_FILES: dir::counter_32bit.sv
+CLOCK_PORT: clk_i
+CLOCK_PERIOD: 25 # 25ns = 40MHz
+
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 350, 350]
+PL_TARGET_DENSITY_PCT: 60
+
+# We don't create cells at the top-level
+SYNTH_ELABORATE_ONLY: true
+RUN_CTS: false
+RUN_POST_GPL_DESIGN_REPAIR: false
+RUN_POST_CTS_RESIZER_TIMING: false
+RUN_POST_GRT_RESIZER_TIMING: false
+DESIGN_REPAIR_BUFFER_INPUT_PORTS: false
+RUN_FILL_INSERTION: false
+
+# ==========================================
+# CẤU HÌNH PDN (POWER DISTRIBUTION NETWORK)
+# ==========================================
+PDN_ENABLE_RAILS: true
+FP_PDN_CORE_RING: true
+PDN_VERTICAL_LAYER: Metal4
+PDN_HORIZONTAL_LAYER: Metal5
+PDN_VPITCH: 20
+PDN_HPITCH: 20
+PDN_VOFFSET: 5
+PDN_HOFFSET: 5
+
+# ==========================================
+# CẤU HÌNH VÀ SẮP XẾP MACRO
+# ==========================================
+MACROS:
+  counter_8bit:
+    gds:
+      - dir::counter_8bit/final/gds/counter_8bit.gds
+    lef:
+      - dir::counter_8bit/final/lef/counter_8bit.lef
+    nl:
+      - dir::counter_8bit/final/nl/counter_8bit.nl.v
+    lib:
+      nom_tt_025C_5v00:
+        - dir::counter_8bit/final/lib/nom_tt_025C_5v00/counter_8bit__nom_tt_025C_5v00.lib
+      nom_ff_n40C_5v50:
+        - dir::counter_8bit/final/lib/nom_ff_n40C_5v50/counter_8bit__nom_ff_n40C_5v50.lib
+      nom_ss_125C_4v50:
+        - dir::counter_8bit/final/lib/nom_ss_125C_4v50/counter_8bit__nom_ss_125C_4v50.lib
+    spef:
+      nom:
+        - dir::counter_8bit/final/spef/nom/counter_8bit.nom.spef
+    instances:
+      counter_0:
+        location: [30, 30]
+        orientation: N
+      counter_1:
+        location: [30, 210]
+        orientation: N
+      counter_2:
+        location: [210, 30]
+        orientation: N
+      counter_3:
+        location: [210, 210]
+        orientation: N
+
+# ==========================================
+# KẾT NỐI CHÂN NGUỒN MACRO VỚI TOP-LEVEL
+# ==========================================
+PDN_MACRO_CONNECTIONS:
+  - "counter_0 VDD VSS VDD VSS"
+  - "counter_1 VDD VSS VDD VSS"
+  - "counter_2 VDD VSS VDD VSS"
+  - "counter_3 VDD VSS VDD VSS"
+FP_PDN_MACRO_HOOKS: "counter_.* VDD VSS VDD VSS"

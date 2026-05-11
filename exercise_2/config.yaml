@@ -1,0 +1,14 @@
+# LibreLane configuration file
+
+DESIGN_NAME: counter
+VERILOG_FILES: dir::src/*.sv
+CLOCK_PORT: clk_i
+CLOCK_PERIOD: 25 # 25ns = 40MHz
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 200, 200]
+  #PL_TARGET_DENSITY_PCT: 80
+FP_OBSTRUCTIONS:
+  - [30, 30, 40, 40]
+  - [120, 100, 150, 115]
+  - [100, 20, 180, 30]
+FP_PIN_ORDER_CFG: dir::pins.cfg
