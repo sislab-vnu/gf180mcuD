@@ -1,0 +1,796 @@
+
+===========================================================================
+report_checks -path_delay max (Setup)
+============================================================================
+======================= min_ss_125C_4v50 Corner ===================================
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _75_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000708    8.762807 v _64_/A3 (gf180mcu_fd_sc_mcu7t5v0__or4_1)
+     2    0.009602    0.637901    2.195247   10.958054 v _64_/Z (gf180mcu_fd_sc_mcu7t5v0__or4_1)
+                                                         _32_ (net)
+                      0.637901    0.000115   10.958168 v _65_/A3 (gf180mcu_fd_sc_mcu7t5v0__and3_1)
+     1    0.002992    0.226421    0.720598   11.678766 v _65_/Z (gf180mcu_fd_sc_mcu7t5v0__and3_1)
+                                                         _07_ (net)
+                      0.226421    0.000029   11.678795 v _75_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                             11.678795   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000266   25.564859 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408487   25.973347 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000115   25.973463 ^ _75_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.723463   clock uncertainty
+                                  0.000000   25.723463   clock reconvergence pessimism
+                                 -0.479584   25.243879   library setup time
+                                             25.243879   data required time
+---------------------------------------------------------------------------------------------
+                                             25.243879   data required time
+                                            -11.678795   data arrival time
+---------------------------------------------------------------------------------------------
+                                             13.565084   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _76_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000708    8.762807 v _64_/A3 (gf180mcu_fd_sc_mcu7t5v0__or4_1)
+     2    0.009602    0.637901    2.195247   10.958054 v _64_/Z (gf180mcu_fd_sc_mcu7t5v0__or4_1)
+                                                         _32_ (net)
+                      0.637901    0.000083   10.958137 v _67_/A2 (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+     1    0.002706    0.485266    0.409341   11.367478 ^ _67_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+                                                         _08_ (net)
+                      0.485266    0.000025   11.367503 ^ _76_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                             11.367503   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000266   25.564859 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408487   25.973347 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000341   25.973688 ^ _76_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.723688   clock uncertainty
+                                  0.000000   25.723688   clock reconvergence pessimism
+                                 -0.504419   25.219271   library setup time
+                                             25.219271   data required time
+---------------------------------------------------------------------------------------------
+                                             25.219271   data required time
+                                            -11.367503   data arrival time
+---------------------------------------------------------------------------------------------
+                                             13.851768   slack (MET)
+
+
+Startpoint: _68_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[0] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000265    0.564860 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408488    0.973348 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000327    0.973675 ^ _68_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     7    0.035212    1.045398    1.851564    2.825239 ^ _68_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net3 (net)
+                      1.045398    0.000440    2.825679 ^ output3/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.074500    2.119321    2.866845    5.692524 ^ output3/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[0] (net)
+                      2.119321    0.001025    5.693549 ^ count_o[0] (out)
+                                              5.693549   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.693549   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.056451   slack (MET)
+
+
+Startpoint: _72_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[4] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000313    0.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410587    0.975494 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000229    0.975723 ^ _72_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     5    0.026660    0.818226    1.719826    2.695549 ^ _72_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net7 (net)
+                      0.818226    0.000143    2.695693 ^ output7/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073835    2.171737    2.845577    5.541270 ^ output7/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[4] (net)
+                      2.171737    0.000540    5.541810 ^ count_o[4] (out)
+                                              5.541810   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.541810   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.208191   slack (MET)
+
+
+Startpoint: _73_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[5] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000313    0.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410587    0.975494 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000041    0.975535 ^ _73_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     4    0.022893    0.718388    1.661710    2.637245 ^ _73_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net8 (net)
+                      0.718388    0.000170    2.637415 ^ output8/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073522    2.162666    2.835557    5.472971 ^ output8/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[5] (net)
+                      2.162666    0.000472    5.473443 ^ count_o[5] (out)
+                                              5.473443   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.473443   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.276556   slack (MET)
+
+
+Startpoint: _69_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[1] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000265    0.564860 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408488    0.973348 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000426    0.973773 ^ _69_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     5    0.021979    0.694089    1.647014    2.620788 ^ _69_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net4 (net)
+                      0.694089    0.000255    2.621043 ^ output4/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.074080    2.106876    2.842252    5.463295 ^ output4/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[1] (net)
+                      2.106876    0.000907    5.464202 ^ count_o[1] (out)
+                                              5.464202   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.464202   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.285798   slack (MET)
+
+
+Startpoint: _71_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[3] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000313    0.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410587    0.975494 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000358    0.975852 ^ _71_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     4    0.020827    0.663596    1.629766    2.605618 ^ _71_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net6 (net)
+                      0.663596    0.000270    2.605889 ^ output6/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073718    2.097041    2.835132    5.441021 ^ output6/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[3] (net)
+                      2.097041    0.000814    5.441835 ^ count_o[3] (out)
+                                              5.441835   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.441835   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.308164   slack (MET)
+
+
+Startpoint: _70_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[2] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000313    0.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410587    0.975494 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000375    0.975870 ^ _70_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     4    0.015967    0.555078    1.554194    2.530064 ^ _70_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net5 (net)
+                      0.555078    0.000168    2.530232 ^ output5/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073489    2.090525    2.825529    5.355762 ^ output5/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[2] (net)
+                      2.090525    0.000790    5.356551 ^ count_o[2] (out)
+                                              5.356551   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.356551   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.393449   slack (MET)
+
+
+Startpoint: _74_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[6] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000313    0.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410587    0.975494 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000085    0.975579 ^ _74_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     3    0.013715    0.482375    1.518959    2.494538 ^ _74_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net9 (net)
+                      0.482375    0.000109    2.494648 ^ output9/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073530    2.091649    2.816037    5.310685 ^ output9/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[6] (net)
+                      2.091649    0.000801    5.311486 ^ count_o[6] (out)
+                                              5.311486   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.311486   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.438514   slack (MET)
+
+
+Startpoint: _76_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: ovf_o (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000265    0.564860 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408488    0.973348 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000342    0.973690 ^ _76_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     2    0.009530    0.385395    1.453262    2.426952 ^ _76_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net11 (net)
+                      0.385395    0.000072    2.427024 ^ output11/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073518    2.162037    2.802958    5.229982 ^ output11/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         ovf_o (net)
+                      2.162037    0.000471    5.230453 ^ ovf_o (out)
+                                              5.230453   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.230453   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.519547   slack (MET)
+
+
+Startpoint: _75_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: count_o[7] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock source latency
+     1    0.027437    0.249816    0.112054    0.112054 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000    0.112054 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452540    0.564594 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000265    0.564860 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408488    0.973348 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000116    0.973464 ^ _75_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+     2    0.008890    0.360476    1.443227    2.416691 ^ _75_/Q (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                                         net10 (net)
+                      0.360476    0.000097    2.416787 ^ output10/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     1    0.073708    2.096431    2.801773    5.218560 ^ output10/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         count_o[7] (net)
+                      2.096431    0.000846    5.219407 ^ count_o[7] (out)
+                                              5.219407   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock network delay (propagated)
+                                 -0.250000   24.750000   clock uncertainty
+                                  0.000000   24.750000   clock reconvergence pessimism
+                                 -5.000000   19.750000   output external delay
+                                             19.750000   data required time
+---------------------------------------------------------------------------------------------
+                                             19.750000   data required time
+                                             -5.219407   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.530593   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _73_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000593    8.762692 v _57_/A3 (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+     1    0.003335    1.148765    1.102261    9.864954 ^ _57_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai31_1)
+                                                         _27_ (net)
+                      1.148765    0.000033    9.864986 ^ _59_/A2 (gf180mcu_fd_sc_mcu7t5v0__and3_1)
+     1    0.003994    0.316924    0.816975   10.681961 ^ _59_/Z (gf180mcu_fd_sc_mcu7t5v0__and3_1)
+                                                         _05_ (net)
+                      0.316924    0.000045   10.682007 ^ _73_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                             10.682007   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000314   25.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410585   25.975492 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000041   25.975534 ^ _73_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.725534   clock uncertainty
+                                  0.000000   25.725534   clock reconvergence pessimism
+                                 -0.477644   25.247892   library setup time
+                                             25.247892   data required time
+---------------------------------------------------------------------------------------------
+                                             25.247892   data required time
+                                            -10.682007   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.565885   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _74_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000757    8.762856 v _61_/A2 (gf180mcu_fd_sc_mcu7t5v0__nor3_1)
+     1    0.005145    1.097096    1.014302    9.777157 ^ _61_/ZN (gf180mcu_fd_sc_mcu7t5v0__nor3_1)
+                                                         _30_ (net)
+                      1.097096    0.000100    9.777258 ^ _62_/B (gf180mcu_fd_sc_mcu7t5v0__aoi211_1)
+     1    0.003233    0.588300    0.474047   10.251305 v _62_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi211_1)
+                                                         _06_ (net)
+                      0.588300    0.000060   10.251366 v _74_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                             10.251366   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000314   25.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410585   25.975492 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000085   25.975578 ^ _74_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.725578   clock uncertainty
+                                  0.000000   25.725578   clock reconvergence pessimism
+                                 -0.590829   25.134750   library setup time
+                                             25.134750   data required time
+---------------------------------------------------------------------------------------------
+                                             25.134750   data required time
+                                            -10.251366   data arrival time
+---------------------------------------------------------------------------------------------
+                                             14.883385   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _72_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000568    8.762667 v _55_/A3 (gf180mcu_fd_sc_mcu7t5v0__nor3_1)
+     1    0.005680    1.146337    0.949042    9.711708 ^ _55_/ZN (gf180mcu_fd_sc_mcu7t5v0__nor3_1)
+                                                         _26_ (net)
+                      1.146337    0.000112    9.711820 ^ _56_/A3 (gf180mcu_fd_sc_mcu7t5v0__nor3_1)
+     1    0.004054    0.553617    0.420672   10.132491 v _56_/ZN (gf180mcu_fd_sc_mcu7t5v0__nor3_1)
+                                                         _04_ (net)
+                      0.553617    0.000045   10.132537 v _72_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                             10.132537   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000314   25.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410585   25.975492 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000229   25.975721 ^ _72_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.725723   clock uncertainty
+                                  0.000000   25.725723   clock reconvergence pessimism
+                                 -0.578592   25.147131   library setup time
+                                             25.147131   data required time
+---------------------------------------------------------------------------------------------
+                                             25.147131   data required time
+                                            -10.132537   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.014594   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _71_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000536    8.762635 v _52_/A2 (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+     1    0.005184    0.880038    0.814283    9.576919 ^ _52_/ZN (gf180mcu_fd_sc_mcu7t5v0__oai21_1)
+                                                         _24_ (net)
+                      0.880038    0.000055    9.576973 ^ _53_/B (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+     1    0.002866    0.532863    0.388880    9.965854 v _53_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+                                                         _03_ (net)
+                      0.532863    0.000028    9.965880 v _71_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                              9.965880   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000314   25.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410585   25.975492 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000359   25.975851 ^ _71_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.725853   clock uncertainty
+                                  0.000000   25.725853   clock reconvergence pessimism
+                                 -0.572214   25.153639   library setup time
+                                             25.153639   data required time
+---------------------------------------------------------------------------------------------
+                                             25.153639   data required time
+                                             -9.965880   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.187757   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _70_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 ^ input external delay
+     1    0.003888    0.194397    0.062647    5.062647 ^ en_i (in)
+                                                         en_i (net)
+                      0.194397    0.000000    5.062647 ^ input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.981819    2.127243    7.189890 ^ input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.981819    0.000492    7.190382 ^ _49_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+     8    0.047190    2.492950    1.571717    8.762099 v _49_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand4_1)
+                                                         _22_ (net)
+                      2.492950    0.000474    8.762573 v _50_/A2 (gf180mcu_fd_sc_mcu7t5v0__nand2_1)
+     1    0.005315    0.711854    0.807811    9.570384 ^ _50_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand2_1)
+                                                         _23_ (net)
+                      0.711854    0.000105    9.570489 ^ _51_/B (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+     1    0.003695    0.460879    0.382585    9.953074 v _51_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi21_1)
+                                                         _02_ (net)
+                      0.460879    0.000041    9.953115 v _70_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                              9.953115   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000314   25.564907 ^ clkbuf_1_0__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.022755    0.162402    0.410585   25.975492 ^ clkbuf_1_0__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_0__leaf_clk_i (net)
+                      0.162402    0.000377   25.975870 ^ _70_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.725870   clock uncertainty
+                                  0.000000   25.725870   clock reconvergence pessimism
+                                 -0.550093   25.175777   library setup time
+                                             25.175777   data required time
+---------------------------------------------------------------------------------------------
+                                             25.175777   data required time
+                                             -9.953115   data arrival time
+---------------------------------------------------------------------------------------------
+                                             15.222663   slack (MET)
+
+
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: _68_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 v input external delay
+     1    0.003797    0.109793    0.037327    5.037327 v rst_ni (in)
+                                                         rst_ni (net)
+                      0.109793    0.000000    5.037327 v input2/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     8    0.047591    1.023214    2.439903    7.477230 v input2/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net2 (net)
+                      1.023214    0.000907    7.478137 v _41_/A2 (gf180mcu_fd_sc_mcu7t5v0__nand2_1)
+     2    0.013540    0.665774    0.660190    8.138327 ^ _41_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand2_1)
+                                                         _16_ (net)
+                      0.665774    0.000104    8.138431 ^ _43_/B1 (gf180mcu_fd_sc_mcu7t5v0__aoi22_1)
+     1    0.003369    0.474375    0.372606    8.511037 v _43_/ZN (gf180mcu_fd_sc_mcu7t5v0__aoi22_1)
+                                                         _00_ (net)
+                      0.474375    0.000062    8.511099 v _68_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                              8.511099   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000266   25.564859 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408487   25.973347 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000327   25.973673 ^ _68_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.723675   clock uncertainty
+                                  0.000000   25.723675   clock reconvergence pessimism
+                                 -0.554687   25.168987   library setup time
+                                             25.168987   data required time
+---------------------------------------------------------------------------------------------
+                                             25.168987   data required time
+                                             -8.511099   data arrival time
+---------------------------------------------------------------------------------------------
+                                             16.657890   slack (MET)
+
+
+Startpoint: en_i (input port clocked by clk_i)
+Endpoint: _69_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout         Cap        Slew       Delay        Time   Description
+---------------------------------------------------------------------------------------------
+                                  0.000000    0.000000   clock clk_i (rise edge)
+                                  0.000000    0.000000   clock network delay (propagated)
+                                  5.000000    5.000000 v input external delay
+     1    0.003888    0.111212    0.038213    5.038213 v en_i (in)
+                                                         en_i (net)
+                      0.111212    0.000000    5.038213 v input1/I (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+     6    0.031898    0.797973    2.250190    7.288403 v input1/Z (gf180mcu_fd_sc_mcu7t5v0__dlyb_1)
+                                                         net1 (net)
+                      0.797973    0.000632    7.289035 v _45_/A1 (gf180mcu_fd_sc_mcu7t5v0__nand3_1)
+     2    0.012468    0.732254    0.602626    7.891661 ^ _45_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand3_1)
+                                                         _19_ (net)
+                      0.732254    0.000212    7.891873 ^ _46_/A2 (gf180mcu_fd_sc_mcu7t5v0__nand2_1)
+     1    0.005963    0.494114    0.247614    8.139487 v _46_/ZN (gf180mcu_fd_sc_mcu7t5v0__nand2_1)
+                                                         _20_ (net)
+                      0.494114    0.000069    8.139557 v _47_/A2 (gf180mcu_fd_sc_mcu7t5v0__nor2_1)
+     1    0.002907    0.410466    0.353690    8.493246 ^ _47_/ZN (gf180mcu_fd_sc_mcu7t5v0__nor2_1)
+                                                         _01_ (net)
+                      0.410466    0.000028    8.493275 ^ _69_/D (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                              8.493275   data arrival time
+
+                                 25.000000   25.000000   clock clk_i (rise edge)
+                                  0.000000   25.000000   clock source latency
+     1    0.027437    0.249816    0.112054   25.112053 ^ clk_i (in)
+                                                         clk_i (net)
+                      0.249816    0.000000   25.112053 ^ clkbuf_0_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     2    0.047809    0.201490    0.452539   25.564592 ^ clkbuf_0_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_0_clk_i (net)
+                      0.201490    0.000266   25.564859 ^ clkbuf_1_1__f_clk_i/I (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+     5    0.021363    0.160186    0.408487   25.973347 ^ clkbuf_1_1__f_clk_i/Z (gf180mcu_fd_sc_mcu7t5v0__clkbuf_16)
+                                                         clknet_1_1__leaf_clk_i (net)
+                      0.160186    0.000426   25.973774 ^ _69_/CLK (gf180mcu_fd_sc_mcu7t5v0__dffq_1)
+                                 -0.250000   25.723774   clock uncertainty
+                                  0.000000   25.723774   clock reconvergence pessimism
+                                 -0.492795   25.230978   library setup time
+                                             25.230978   data required time
+---------------------------------------------------------------------------------------------
+                                             25.230978   data required time
+                                             -8.493275   data arrival time
+---------------------------------------------------------------------------------------------
+                                             16.737705   slack (MET)
+
+
+

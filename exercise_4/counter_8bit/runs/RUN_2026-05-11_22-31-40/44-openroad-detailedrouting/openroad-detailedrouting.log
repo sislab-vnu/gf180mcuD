@@ -1,0 +1,217 @@
+Reading timing models for corner nom_tt_025C_5v00…
+Reading timing library for the 'nom_tt_025C_5v00' corner at '/home/windyphony/.ciel/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib'…
+Reading OpenROAD database at '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/42-openroad-repairantennas/1-openroad-diodeinsertion/counter_8bit.odb'…
+Reading design constraints file at '/home/windyphony/unic-cass/envs/librelane/lib/python3.12/site-packages/librelane/scripts/base.sdc'…
+[INFO] Using clock clk_i…
+[INFO] Setting output delay to: 5
+[INFO] Setting input delay to: 5
+[INFO] Setting load to: 0.07291
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.1499999999999999944488848768742172978818416595458984375
+[INFO] Setting timing derate to: 5%
+[INFO ORD-0030] Using 16 thread(s).
++ detailed_route -droute_end_iter 64 -or_seed 42 -verbose 1 -output_drc /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/44-openroad-detailedrouting/drt-run-0/counter_8bit.drc
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via1
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer Via4
+
+Units:                2000
+Number of layers:     11
+Number of macros:     229
+Number of vias:       60
+Number of viarulegen: 16
+
+[INFO DRT-0150] Reading design.
+
+Design:                   counter_8bit
+Die area:                 ( 0 0 ) ( 150000 150000 )
+Number of track patterns: 10
+Number of DEF vias:       0
+Number of components:     120
+Number of terminals:      14
+Number of snets:          2
+Number of nets:           60
+
+[INFO DRT-0167] List of default vias:
+  Layer Via2
+    default via: Via2_VH
+  Layer Via3
+    default via: Via3_HV
+  Layer Via4
+    default via: Via4_VH
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 45.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete Poly2.
+[INFO DRT-0024]   Complete CON.
+[INFO DRT-0024]   Complete Metal1.
+[INFO DRT-0024]   Complete Via1.
+[INFO DRT-0024]   Complete Metal2.
+[INFO DRT-0024]   Complete Via2.
+[INFO DRT-0024]   Complete Metal3.
+[INFO DRT-0024]   Complete Via3.
+[INFO DRT-0024]   Complete Metal4.
+[INFO DRT-0024]   Complete Via4.
+[INFO DRT-0024]   Complete Metal5.
+[INFO DRT-0033] Poly2 shape region query size = 0.
+[INFO DRT-0033] CON shape region query size = 0.
+[INFO DRT-0033] Metal1 shape region query size = 1643.
+[INFO DRT-0033] Via1 shape region query size = 54.
+[INFO DRT-0033] Metal2 shape region query size = 39.
+[INFO DRT-0033] Via2 shape region query size = 54.
+[INFO DRT-0033] Metal3 shape region query size = 45.
+[INFO DRT-0033] Via3 shape region query size = 54.
+[INFO DRT-0033] Metal4 shape region query size = 48.
+[INFO DRT-0033] Via4 shape region query size = 162.
+[INFO DRT-0033] Metal5 shape region query size = 30.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 293 pins.
+[INFO DRT-0081]   Complete 41 unique inst patterns.
+[INFO DRT-0084]   Complete 36 groups.
+#scanned instances     = 120
+#unique  instances     = 45
+#stdCellGenAp          = 678
+#stdCellValidPlanarAp  = 0
+#stdCellValidViaAp     = 633
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 180
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:00, memory = 125.52 (MB), peak = 124.60 (MB)
+
+[INFO DRT-0157] Number of guides:     428
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 8 STEP 16800 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 8 STEP 16800 ;
+[INFO DRT-0028]   Complete Poly2.
+[INFO DRT-0028]   Complete CON.
+[INFO DRT-0028]   Complete Metal1.
+[INFO DRT-0028]   Complete Via1.
+[INFO DRT-0028]   Complete Metal2.
+[INFO DRT-0028]   Complete Via2.
+[INFO DRT-0028]   Complete Metal3.
+[INFO DRT-0028]   Complete Via3.
+[INFO DRT-0028]   Complete Metal4.
+[INFO DRT-0028]   Complete Via4.
+[INFO DRT-0028]   Complete Metal5.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete Poly2 (guide).
+[INFO DRT-0035]   Complete CON (guide).
+[INFO DRT-0035]   Complete Metal1 (guide).
+[INFO DRT-0035]   Complete Via1 (guide).
+[INFO DRT-0035]   Complete Metal2 (guide).
+[INFO DRT-0035]   Complete Via2 (guide).
+[INFO DRT-0035]   Complete Metal3 (guide).
+[INFO DRT-0035]   Complete Via3 (guide).
+[INFO DRT-0035]   Complete Metal4 (guide).
+[INFO DRT-0035]   Complete Via4 (guide).
+[INFO DRT-0035]   Complete Metal5 (guide).
+[INFO DRT-0036] Poly2 guide region query size = 0.
+[INFO DRT-0036] CON guide region query size = 0.
+[INFO DRT-0036] Metal1 guide region query size = 151.
+[INFO DRT-0036] Via1 guide region query size = 0.
+[INFO DRT-0036] Metal2 guide region query size = 126.
+[INFO DRT-0036] Via2 guide region query size = 0.
+[INFO DRT-0036] Metal3 guide region query size = 63.
+[INFO DRT-0036] Via3 guide region query size = 0.
+[INFO DRT-0036] Metal4 guide region query size = 0.
+[INFO DRT-0036] Via4 guide region query size = 0.
+[INFO DRT-0036] Metal5 guide region query size = 0.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 125.88 (MB), peak = 124.85 (MB)
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 126 vertical wires in 1 frboxes and 214 horizontal wires in 1 frboxes.
+[INFO DRT-0186] Done with 27 vertical wires in 1 frboxes and 27 horizontal wires in 1 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 127.18 (MB), peak = 126.35 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 127.25 (MB), peak = 126.35 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 20% with 0 violations.
+    elapsed time = 00:00:00, memory = 130.94 (MB).
+    Completing 50% with 0 violations.
+    elapsed time = 00:00:00, memory = 131.62 (MB).
+    Completing 70% with 0 violations.
+    elapsed time = 00:00:00, memory = 132.37 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:00, memory = 132.37 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 404.63 (MB), peak = 445.46 (MB)
+Total wire length = 1233 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 698 um.
+Total wire length on LAYER Metal3 = 531 um.
+Total wire length on LAYER Metal4 = 2 um.
+Total wire length on LAYER Metal5 = 0 um.
+Total number of vias = 318.
+Up-via summary (total 318):
+
+--------------
+  Poly2      0
+ Metal1    184
+ Metal2    132
+ Metal3      2
+ Metal4      0
+--------------
+       318
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 1233 um.
+Total wire length on LAYER Metal1 = 0 um.
+Total wire length on LAYER Metal2 = 698 um.
+Total wire length on LAYER Metal3 = 531 um.
+Total wire length on LAYER Metal4 = 2 um.
+Total wire length on LAYER Metal5 = 0 um.
+Total number of vias = 318.
+Up-via summary (total 318):
+
+--------------
+  Poly2      0
+ Metal1    184
+ Metal2    132
+ Metal3      2
+ Metal4      0
+--------------
+       318
+
+
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 404.76 (MB), peak = 445.46 (MB)
+
+[INFO DRT-0180] Post processing.
++ check_antennas 
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+[INFO ODB-0403] 0 connections made, 0 conflicts skipped.
+Updating metrics…
+Cell type report:                       Count       Area
+  Endcap cell                              34     149.27
+  Tap cell                                 28     122.93
+  Clock buffer                              4     346.84
+  Timing Repair Buffer                     11     386.36
+  Inverter                                  7      61.47
+  Sequential cell                           9     572.95
+  Multi-Input combinational cell           27     480.75
+  Total                                   120    2120.56
+Writing OpenROAD database to '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/44-openroad-detailedrouting/counter_8bit.odb'…
+Writing netlist to '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/44-openroad-detailedrouting/counter_8bit.nl.v'…
+Writing powered netlist to '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/44-openroad-detailedrouting/counter_8bit.pnl.v'…
+Writing layout to '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/44-openroad-detailedrouting/counter_8bit.def'…
+Writing timing constraints to '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_22-31-40/44-openroad-detailedrouting/counter_8bit.sdc'…

@@ -1,0 +1,5 @@
+`verilator_config
+lint_off -rule DECLFILENAME
+lint_off -rule EOFNEWLINE
+lint_off -rule UNDRIVEN -file "/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-45-40/tmp/f47d8f161fa0405faa494d0556d1513a.bb.v"
+lint_off -rule UNUSEDSIGNAL -file "/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-45-40/tmp/f47d8f161fa0405faa494d0556d1513a.bb.v"

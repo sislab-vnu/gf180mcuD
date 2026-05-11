@@ -1,0 +1,7 @@
+set circuit1 [readnet spice /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-45-40/68-magic-spiceextraction/counter_8bit.spice]
+set circuit2 [readnet verilog /dev/null]
+puts "Reading SPICE netlist file '/home/windyphony/.ciel/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice'..."
+readnet spice /home/windyphony/.ciel/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice $circuit2
+puts "Reading Verilog netlist file '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-45-40/52-openroad-fillinsertion/counter_8bit.pnl.v'..."
+readnet verilog /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-45-40/52-openroad-fillinsertion/counter_8bit.pnl.v $circuit2
+lvs "$circuit1 counter_8bit" "$circuit2 counter_8bit" /home/windyphony/unic-cass/envs/librelane/lib/python3.12/site-packages/librelane/scripts/netgen/setup.tcl /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-45-40/70-netgen-lvs/reports/lvs.netgen.rpt -blackbox -json

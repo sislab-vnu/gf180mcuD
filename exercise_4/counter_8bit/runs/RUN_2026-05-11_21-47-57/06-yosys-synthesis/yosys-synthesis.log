@@ -1,0 +1,1024 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.62 (git sha1 7326bb7d6-dirty, x86_64-conda-linux-gnu-c++ 15.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/tmp/really-long-path/conda/conda-bld/yosys_1778259432904/work=/usr/local/src/conda/yosys-0.62_0_g7326bb7d6 -fdebug-prefix-map=/home/windyphony/unic-cass/envs/librelane=/usr/local/src/conda-prefix -fPIC -O3)
+
+1. Executing Liberty frontend: /home/windyphony/.ciel/ciel/gf180mcu/versions/54435919abffb937387ec956209f9cf5fd2dfbee/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/lib/gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00.lib
+Imported 229 cell types from liberty file.
+[INFO] Using SDC file '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/06-yosys-synthesis/synthesis.abc.sdc' for ABC…wtaf
+
+2. Executing Verilog-2005 frontend: /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv
+Parsing SystemVerilog input from `/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv' to AST representation.
+Storing AST representation for module `$abstract\counter_8bit'.
+Successfully finished Verilog frontend.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+4. Executing AST frontend in derive mode using pre-parsed AST for module `\counter_8bit'.
+Generating RTLIL representation for module `\counter_8bit'.
+
+4.1. Analyzing design hierarchy..
+Top module:  \counter_8bit
+
+4.2. Analyzing design hierarchy..
+Top module:  \counter_8bit
+Removing unused module `$abstract\counter_8bit'.
+Removed 1 unused modules.
+Renaming module counter_8bit to counter_8bit.
+
+5. Executing ATTRMAP pass (move or copy attributes).
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1. Analyzing design hierarchy..
+Top module:  \counter_8bit
+
+6.2. Analyzing design hierarchy..
+Top module:  \counter_8bit
+Removed 0 unused modules.
+
+7. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:12$1 in module counter_8bit.
+Removed a total of 0 dead cases.
+
+9. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+10. Executing PROC_INIT pass (extract init attributes).
+
+11. Executing PROC_ARST pass (detect async resets in processes).
+
+12. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+13. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\counter_8bit.$proc$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:12$1'.
+     1/2: $0\ovf_o[0:0]
+     2/2: $0\count_o[7:0]
+
+14. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+15. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\counter_8bit.\count_o' using process `\counter_8bit.$proc$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:12$1'.
+  created $dff cell `$procdff$14' with positive edge clock.
+Creating register for signal `\counter_8bit.\ovf_o' using process `\counter_8bit.$proc$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:12$1'.
+  created $dff cell `$procdff$15' with positive edge clock.
+
+16. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+17. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\counter_8bit.$proc$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:12$1'.
+Removing empty process `counter_8bit.$proc$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:12$1'.
+Cleaned up 2 empty switches.
+
+18. Executing CHECK pass (checking for obvious problems).
+Checking module counter_8bit...
+Found and reported 0 problems.
+
+19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+20. Executing FLATTEN pass (flatten design).
+
+21. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+22. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+Removed 1 unused cells and 7 unused wires.
+
+23. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+24. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 7 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+25. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+
+26. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_8bit.
+Performed a total of 0 changes.
+
+27. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 7 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+28. Executing OPT_DFF pass (perform DFF optimizations).
+
+29. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+30. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+31. Executing FSM pass (extract and optimize FSM).
+
+31.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+31.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+31.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+31.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+31.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+31.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+31.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+31.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+32. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+33. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 7 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+34. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_8bit..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+
+35. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_8bit.
+Performed a total of 0 changes.
+
+36. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 7 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+37. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$15 ($dff) from module counter_8bit (D = $add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3_Y [8], Q = \ovf_o).
+Adding SRST signal on $procdff$14 ($dff) from module counter_8bit (D = $procmux$9_Y, Q = \count_o, rval = 8'00000000).
+Adding EN signal on $auto$ff.cc:337:slice$19 ($sdff) from module counter_8bit (D = $add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3_Y [7:0], Q = \count_o).
+
+38. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+Removed 4 unused cells and 4 unused wires.
+
+39. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+40. Rerunning OPT passes. (Maybe there is more to do…)
+
+41. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_8bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+42. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_8bit.
+Performed a total of 0 changes.
+
+43. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 4 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+44. Executing OPT_DFF pass (perform DFF optimizations).
+
+45. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+46. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+47. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell counter_8bit.$add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3 ($add).
+Removed top 23 bits (of 32) from port Y of cell counter_8bit.$add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3 ($add).
+Removed top 23 bits (of 32) from wire counter_8bit.$add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3_Y.
+
+48. Executing PEEPOPT pass (run peephole optimizers).
+
+49. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+Removed 0 unused cells and 1 unused wires.
+
+50. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module counter_8bit:
+  creating $macc model for $add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3 ($add).
+  creating $alu model for $macc $add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3.
+  creating $alu cell for $add$/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/counter_8bit.sv:17$3: $auto$alumacc.cc:512:replace_alu$22
+  created 1 $alu and 0 $macc cells.
+
+51. Executing SHARE pass (SAT-based resource sharing).
+
+52. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+53. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 4 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+54. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_8bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+55. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_8bit.
+Performed a total of 0 changes.
+
+56. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 4 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+57. Executing OPT_DFF pass (perform DFF optimizations).
+
+58. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+59. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+60. Executing MEMORY pass.
+
+60.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+60.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+60.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+60.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+60.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+60.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+60.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+60.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+60.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+60.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+61. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+62. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+63. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 4 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+64. Executing OPT_DFF pass (perform DFF optimizations).
+
+65. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+66. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+67. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+68. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 4 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+69. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_8bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+70. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_8bit.
+Performed a total of 0 changes.
+
+71. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 4 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+72. Executing OPT_SHARE pass.
+
+73. Executing OPT_DFF pass (perform DFF optimizations).
+
+74. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+75. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+76. Executing TECHMAP pass (map to technology primitives).
+
+76.1. Executing Verilog-2005 frontend: /home/windyphony/unic-cass/envs/librelane/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/home/windyphony/unic-cass/envs/librelane/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `$__div_mod_u'.
+Generating RTLIL representation for module `$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Generating RTLIL representation for module `$connect'.
+Generating RTLIL representation for module `$input_port'.
+Successfully finished Verilog frontend.
+
+76.2. Continuing TECHMAP pass.
+Using template $paramod$a2af9b43308e3114c3b5dd3f4dc3329b2387395d\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000001001 for cells of type $fa.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001001 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $and.
+No more expansions possible.
+
+77. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+78. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 37 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Computing hashes of 36 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 1 cells.
+
+79. Executing OPT_DFF pass (perform DFF optimizations).
+
+80. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+Removed 7 unused cells and 58 unused wires.
+
+81. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+82. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 29 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+83. Executing OPT_DFF pass (perform DFF optimizations).
+
+84. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+85. Executing ABC pass (technology mapping using ABC).
+
+85.1. Extracting gate netlist of module `\counter_8bit' to `<abc-temp-dir>/input.blif'..
+
+85.1.1. Executed ABC.
+Extracted 20 gates and 30 wires to a netlist network with 10 inputs and 10 outputs.
+Running ABC script: <abc-temp-dir>/abc.script
+ABC: ======== ABC command line "source <abc-temp-dir>/abc.script"
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library /tmp/yosys-abc-T70B4i/stdcells.genlib 
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+85.1.2. Re-integrating ABC results.
+ABC RESULTS:               AND cells:        4
+ABC RESULTS:            ANDNOT cells:        3
+ABC RESULTS:              NAND cells:        3
+ABC RESULTS:               NOT cells:        1
+ABC RESULTS:                OR cells:        1
+ABC RESULTS:             ORNOT cells:        1
+ABC RESULTS:              XNOR cells:        1
+ABC RESULTS:               XOR cells:        6
+ABC RESULTS:        internal signals:       10
+ABC RESULTS:           input signals:       10
+ABC RESULTS:          output signals:       10
+Removing temp directory.
+Removing global temp directory.
+
+86. Executing OPT pass (performing simple optimizations).
+
+86.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+86.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 29 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+86.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+86.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+Removed 0 unused cells and 24 unused wires.
+
+86.5. Finished fast OPT passes.
+
+87. Executing HIERARCHY pass (managing design hierarchy).
+
+87.1. Analyzing design hierarchy..
+Top module:  \counter_8bit
+
+87.2. Analyzing design hierarchy..
+Top module:  \counter_8bit
+Removed 0 unused modules.
+
+88. Executing CHECK pass (checking for obvious problems).
+Checking module counter_8bit...
+Found and reported 0 problems.
+
+89. Printing statistics.
+
+=== counter_8bit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       19 wires
+       50 wire bits
+        5 public wires
+       12 public wire bits
+        5 ports
+       12 port bits
+       29 cells
+        3   $_ANDNOT_
+        4   $_AND_
+        1   $_DFFE_PP_
+        3   $_NAND_
+        1   $_NOT_
+        1   $_ORNOT_
+        1   $_OR_
+        8   $_SDFFE_PN0P_
+        1   $_XNOR_
+        6   $_XOR_
+
+90. Executing OPT pass (performing simple optimizations).
+
+90.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+90.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 29 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+90.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \counter_8bit..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+90.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \counter_8bit.
+Performed a total of 0 changes.
+
+90.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\counter_8bit'.
+Computing hashes of 29 cells of `\counter_8bit'.
+Finding duplicate cells in `\counter_8bit'.
+Removed a total of 0 cells.
+
+90.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+90.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+
+90.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module counter_8bit.
+
+90.9. Finished fast OPT passes. (There is nothing left to do.)
+
+91. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6-dirty, x86_64-conda-linux-gnu-c++ 15.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/tmp/really-long-path/conda/conda-bld/yosys_1778259432904/work=/usr/local/src/conda/yosys-0.62_0_g7326bb7d6 -fdebug-prefix-map=/home/windyphony/unic-cass/envs/librelane=/usr/local/src/conda-prefix -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/tmp/065f9854ee0e43b9812f952603f33f1e.lib ",
+   "modules": {
+      "\\counter_8bit": {
+         "num_wires":         19,
+         "num_wire_bits":     50,
+         "num_pub_wires":     5,
+         "num_pub_wire_bits": 12,
+         "num_ports":         5,
+         "num_port_bits":     12,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         29,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 3,
+            "$_AND_": 4,
+            "$_DFFE_PP_": 1,
+            "$_NAND_": 3,
+            "$_NOT_": 1,
+            "$_ORNOT_": 1,
+            "$_OR_": 1,
+            "$_SDFFE_PN0P_": 8,
+            "$_XNOR_": 1,
+            "$_XOR_": 6
+         }
+      }
+   },
+      "design": {
+         "num_wires":         19,
+         "num_wire_bits":     50,
+         "num_pub_wires":     5,
+         "num_pub_wire_bits": 12,
+         "num_ports":         5,
+         "num_port_bits":     12,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         29,
+         "num_submodules":       0,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 3,
+            "$_AND_": 4,
+            "$_DFFE_PP_": 1,
+            "$_NAND_": 3,
+            "$_NOT_": 1,
+            "$_ORNOT_": 1,
+            "$_OR_": 1,
+            "$_SDFFE_PN0P_": 8,
+            "$_XNOR_": 1,
+            "$_XOR_": 6
+         }
+      }
+}
+
+92. Printing statistics.
+
+=== counter_8bit ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       19 wires
+       50 wire bits
+        5 public wires
+       12 public wire bits
+        5 ports
+       12 port bits
+       29 cells
+        3   $_ANDNOT_
+        4   $_AND_
+        1   $_DFFE_PP_
+        3   $_NAND_
+        1   $_NOT_
+        1   $_ORNOT_
+        1   $_OR_
+        8   $_SDFFE_PN0P_
+        1   $_XNOR_
+        6   $_XOR_
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_DFFE_PP_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_SDFFE_PN0P_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+93. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell gf180mcu_fd_sc_mcu7t5v0__dffnq_1 (noninv, pins=3, area=65.86) is a direct match for cell type $_DFF_N_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffq_1 (noninv, pins=3, area=63.66) is a direct match for cell type $_DFF_P_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffnrnq_1 (noninv, pins=4, area=74.64) is a direct match for cell type $_DFF_NN0_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffnsnq_1 (noninv, pins=4, area=79.03) is a direct match for cell type $_DFF_NN1_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffrnq_1 (noninv, pins=4, area=74.64) is a direct match for cell type $_DFF_PN0_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffsnq_1 (noninv, pins=4, area=79.03) is a direct match for cell type $_DFF_PN1_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_1 (noninv, pins=5, area=94.39) is a direct match for cell type $_DFFSR_NNN_.
+  cell gf180mcu_fd_sc_mcu7t5v0__dffrsnq_1 (noninv, pins=5, area=85.61) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    \gf180mcu_fd_sc_mcu7t5v0__dffnq_1 _DFF_N_ (.CLKN( C), .D( D), .Q( Q));
+    \gf180mcu_fd_sc_mcu7t5v0__dffq_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \gf180mcu_fd_sc_mcu7t5v0__dffnrnq_1 _DFF_NN0_ (.CLKN( C), .D( D), .Q( Q), .RN( R));
+    \gf180mcu_fd_sc_mcu7t5v0__dffnsnq_1 _DFF_NN1_ (.CLKN( C), .D( D), .Q( Q), .SETN( R));
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \gf180mcu_fd_sc_mcu7t5v0__dffrnq_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RN( R));
+    \gf180mcu_fd_sc_mcu7t5v0__dffsnq_1 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SETN( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    unmapped dff cell: $_DFFE_PP_
+    \gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_1 _DFFSR_NNN_ (.CLKN( C), .D( D), .Q( Q), .RN( R), .SETN( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \gf180mcu_fd_sc_mcu7t5v0__dffrsnq_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .RN( R), .SETN( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+93.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\counter_8bit':
+  mapped 9 $_DFF_P_ cells to \gf180mcu_fd_sc_mcu7t5v0__dffq_1 cells.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6-dirty, x86_64-conda-linux-gnu-c++ 15.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/tmp/really-long-path/conda/conda-bld/yosys_1778259432904/work=/usr/local/src/conda/yosys-0.62_0_g7326bb7d6 -fdebug-prefix-map=/home/windyphony/unic-cass/envs/librelane=/usr/local/src/conda-prefix -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/tmp/065f9854ee0e43b9812f952603f33f1e.lib ",
+   "modules": {
+      "\\counter_8bit": {
+         "num_wires":         36,
+         "num_wire_bits":     67,
+         "num_pub_wires":     5,
+         "num_pub_wire_bits": 12,
+         "num_ports":         5,
+         "num_port_bits":     12,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         46,
+         "num_submodules":       0,
+         "area":              572.947200,
+         "sequential_area":    572.947200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 3,
+            "$_AND_": 4,
+            "$_MUX_": 17,
+            "$_NAND_": 3,
+            "$_NOT_": 1,
+            "$_ORNOT_": 1,
+            "$_OR_": 1,
+            "$_XNOR_": 1,
+            "$_XOR_": 6,
+            "gf180mcu_fd_sc_mcu7t5v0__dffq_1": 9
+         }
+      }
+   },
+      "design": {
+         "num_wires":         36,
+         "num_wire_bits":     67,
+         "num_pub_wires":     5,
+         "num_pub_wire_bits": 12,
+         "num_ports":         5,
+         "num_port_bits":     12,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         46,
+         "num_submodules":       0,
+         "area":              572.947200,
+         "sequential_area":    572.947200,
+         "num_cells_by_type": {
+            "$_ANDNOT_": 3,
+            "$_AND_": 4,
+            "$_MUX_": 17,
+            "$_NAND_": 3,
+            "$_NOT_": 1,
+            "$_ORNOT_": 1,
+            "$_OR_": 1,
+            "$_XNOR_": 1,
+            "$_XOR_": 6,
+            "gf180mcu_fd_sc_mcu7t5v0__dffq_1": 9
+         }
+      }
+}
+
+94. Printing statistics.
+
+=== counter_8bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       36        - wires
+       67        - wire bits
+        5        - public wires
+       12        - public wire bits
+        5        - ports
+       12        - port bits
+       46  572.947 cells
+        3        -   $_ANDNOT_
+        4        -   $_AND_
+       17        -   $_MUX_
+        3        -   $_NAND_
+        1        -   $_NOT_
+        1        -   $_ORNOT_
+        1        -   $_OR_
+        1        -   $_XNOR_
+        6        -   $_XOR_
+        9  572.947   gf180mcu_fd_sc_mcu7t5v0__dffq_1
+
+   Area for cell type $_ANDNOT_ is unknown!
+   Area for cell type $_AND_ is unknown!
+   Area for cell type $_MUX_ is unknown!
+   Area for cell type $_NAND_ is unknown!
+   Area for cell type $_NOT_ is unknown!
+   Area for cell type $_ORNOT_ is unknown!
+   Area for cell type $_OR_ is unknown!
+   Area for cell type $_XNOR_ is unknown!
+   Area for cell type $_XOR_ is unknown!
+
+   Chip area for module '\counter_8bit': 572.947200
+     of which used for sequential elements: 572.947200 (100.00%)
+
+[INFO] Using generated ABC script '/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/06-yosys-synthesis/AREA_0.abc'…
+
+95. Executing ABC pass (technology mapping using ABC).
+
+95.1. Extracting gate netlist of module `\counter_8bit' to `/tmp/yosys-abc-qw197R/input.blif'..
+
+95.1.1. Executed ABC.
+Extracted 37 gates and 49 wires to a netlist network with 11 inputs and 9 outputs.
+Running ABC script: /tmp/yosys-abc-qw197R/abc.script
+ABC: ======== ABC command line "source /tmp/yosys-abc-qw197R/abc.script"
+ABC: + read_blif /tmp/yosys-abc-qw197R/input.blif 
+ABC: + read_lib -w /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/tmp/065f9854ee0e43b9812f952603f33f1e.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__antenna" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_3".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_12".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__bufz_16".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnrnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnrnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnrnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnrsnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnsnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnsnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffnsnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffrnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffrnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffrnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffrsnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffrsnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffrsnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffsnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffsnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__dffsnq_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__endcap" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_16" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_32" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fill_64" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fillcap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fillcap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fillcap_16" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fillcap_32" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__fillcap_64" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__filltie" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__hold".
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__icgtn_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__icgtn_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__icgtn_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__icgtp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__icgtp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "gf180mcu_fd_sc_mcu7t5v0__icgtp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_3".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_12".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "gf180mcu_fd_sc_mcu7t5v0__invz_16".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latrnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latrnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latrnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latrsnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latrsnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latrsnq_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latsnq_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latsnq_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "gf180mcu_fd_sc_mcu7t5v0__latsnq_4".
+ABC: Library "gf180mcu_fd_sc_mcu7t5v0__tt_025C_5v00" from "/home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/tmp/065f9854ee0e43b9812f952603f33f1e.lib" has 143 cells (72 skipped: 36 seq; 15 tri-state; 21 no func; 0 dont_use; 0 with 2 outputs; 0 with 3+ outputs).  Time =     0.12 sec
+ABC: Memory =   23.83 MB. Time =     0.12 sec
+ABC: Warning: Detected 6 multi-output cells (for example, "gf180mcu_fd_sc_mcu7t5v0__addf_1").
+ABC: + read_constr -v /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/06-yosys-synthesis/synthesis.abc.sdc 
+ABC: Setting driving cell to be "gf180mcu_fd_sc_mcu7t5v0__inv_1/ZN".
+ABC: Setting output load to be 72.910004.
+ABC: + source /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/06-yosys-synthesis/AREA_0.abc 
+ABC: Error: The network is combinational.
+ABC: Cannot find the default PI driving cell (gf180mcu_fd_sc_mcu7t5v0__inv_1/ZN) in the library.
+ABC: WireLoad = "none"  Gates =     34 ( 20.6 %)   Cap = 22.9 ff (  0.0 %)   Area =      542.21 (100.0 %)   Delay =  3022.07 ps  ( 14.7 %)               
+ABC: Path  0 --       9 : 0    6 pi                               A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =  25.5 ff  Cmax =   0.0 ff  G =    0  
+ABC: Path  1 --      36 : 4    8 gf180mcu_fd_sc_mcu7t5v0__nand4_1 A =  19.76  Df = 623.8   -4.5 ps  S =1060.0 ps  Cin =  4.0 ff  Cout =  33.8 ff  Cmax = 143.5 ff  G =  845  
+ABC: Path  2 --      51 : 4    2 gf180mcu_fd_sc_mcu7t5v0__or4_1   A =  26.34  Df =1637.6 -640.4 ps  S = 319.5 ps  Cin =  2.8 ff  Cout =   7.6 ff  Cmax = 238.9 ff  G =  272  
+ABC: Path  3 --      54 : 3    1 gf180mcu_fd_sc_mcu7t5v0__oai21_1 A =  17.56  Df =3022.1-1281.2 ps  S =2335.0 ps  Cin =  4.9 ff  Cout =  72.9 ff  Cmax = 124.5 ff  G = 1500  
+ABC: Start-point = pi8 (\count_o [0]).  End-point = po8 ($auto$rtlil.cc:3583:MuxGate$317).
+ABC: netlist                       : i/o =   11/    9  lat =    0  nd =    34  edge =     90  area =542.23  delay = 3.00  lev = 3
+ABC: + write_blif /tmp/yosys-abc-qw197R/output.blif 
+
+95.1.2. Re-integrating ABC results.
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__and3_1 cells:        2
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__and4_1 cells:        1
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__aoi211_1 cells:        1
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__aoi21_1 cells:        4
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__aoi22_1 cells:        1
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__clkinv_1 cells:        7
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__nand2_1 cells:        5
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__nand3_1 cells:        2
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__nand4_1 cells:        2
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__nor2_1 cells:        1
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__nor3_1 cells:        3
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__oai21_1 cells:        2
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__oai31_1 cells:        2
+ABC RESULTS:   gf180mcu_fd_sc_mcu7t5v0__or4_1 cells:        1
+ABC RESULTS:        internal signals:       29
+ABC RESULTS:           input signals:       11
+ABC RESULTS:          output signals:        9
+Removing temp directory.
+Removing global temp directory.
+
+96. Executing SETUNDEF pass (replace undef values with defined constants).
+
+97. Executing HILOMAP pass (mapping to constant drivers).
+
+98. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+99. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \counter_8bit..
+Removed 2 unused cells and 68 unused wires.
+
+100. Executing INSBUF pass (insert buffer cells for connected wires).
+
+101. Executing CHECK pass (checking for obvious problems).
+Checking module counter_8bit...
+Found and reported 0 problems.
+{
+   "creator": "Yosys 0.62 (git sha1 7326bb7d6-dirty, x86_64-conda-linux-gnu-c++ 15.2.0 -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -fdebug-prefix-map=/tmp/really-long-path/conda/conda-bld/yosys_1778259432904/work=/usr/local/src/conda/yosys-0.62_0_g7326bb7d6 -fdebug-prefix-map=/home/windyphony/unic-cass/envs/librelane=/usr/local/src/conda-prefix -fPIC -O3)",
+   "invocation": "stat -json -liberty /home/windyphony/heichips25-workshop/exercise_4/counter_8bit/runs/RUN_2026-05-11_21-47-57/tmp/065f9854ee0e43b9812f952603f33f1e.lib ",
+   "modules": {
+      "\\counter_8bit": {
+         "num_wires":         39,
+         "num_wire_bits":     46,
+         "num_pub_wires":     5,
+         "num_pub_wire_bits": 12,
+         "num_ports":         5,
+         "num_port_bits":     12,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         43,
+         "num_submodules":       0,
+         "area":              1115.161600,
+         "sequential_area":    572.947200,
+         "num_cells_by_type": {
+            "gf180mcu_fd_sc_mcu7t5v0__and3_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__and4_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__aoi211_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__aoi21_1": 4,
+            "gf180mcu_fd_sc_mcu7t5v0__aoi22_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__clkinv_1": 7,
+            "gf180mcu_fd_sc_mcu7t5v0__dffq_1": 9,
+            "gf180mcu_fd_sc_mcu7t5v0__nand2_1": 5,
+            "gf180mcu_fd_sc_mcu7t5v0__nand3_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__nand4_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__nor2_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__nor3_1": 3,
+            "gf180mcu_fd_sc_mcu7t5v0__oai21_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__oai31_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__or4_1": 1
+         }
+      }
+   },
+      "design": {
+         "num_wires":         39,
+         "num_wire_bits":     46,
+         "num_pub_wires":     5,
+         "num_pub_wire_bits": 12,
+         "num_ports":         5,
+         "num_port_bits":     12,
+         "num_memories":      0,
+         "num_memory_bits":   0,
+         "num_processes":     0,
+         "num_cells":         43,
+         "num_submodules":       0,
+         "area":              1115.161600,
+         "sequential_area":    572.947200,
+         "num_cells_by_type": {
+            "gf180mcu_fd_sc_mcu7t5v0__and3_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__and4_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__aoi211_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__aoi21_1": 4,
+            "gf180mcu_fd_sc_mcu7t5v0__aoi22_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__clkinv_1": 7,
+            "gf180mcu_fd_sc_mcu7t5v0__dffq_1": 9,
+            "gf180mcu_fd_sc_mcu7t5v0__nand2_1": 5,
+            "gf180mcu_fd_sc_mcu7t5v0__nand3_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__nand4_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__nor2_1": 1,
+            "gf180mcu_fd_sc_mcu7t5v0__nor3_1": 3,
+            "gf180mcu_fd_sc_mcu7t5v0__oai21_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__oai31_1": 2,
+            "gf180mcu_fd_sc_mcu7t5v0__or4_1": 1
+         }
+      }
+}
+
+102. Printing statistics.
+
+=== counter_8bit ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       39        - wires
+       46        - wire bits
+        5        - public wires
+       12        - public wire bits
+        5        - ports
+       12        - port bits
+       43 1.12E+03 cells
+        2   43.904   gf180mcu_fd_sc_mcu7t5v0__and3_1
+        1   24.147   gf180mcu_fd_sc_mcu7t5v0__and4_1
+        1   21.952   gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+        4   70.246   gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+        1   19.757   gf180mcu_fd_sc_mcu7t5v0__aoi22_1
+        7   61.466   gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+        9  572.947   gf180mcu_fd_sc_mcu7t5v0__dffq_1
+        5    54.88   gf180mcu_fd_sc_mcu7t5v0__nand2_1
+        2   30.733   gf180mcu_fd_sc_mcu7t5v0__nand3_1
+        2   39.514   gf180mcu_fd_sc_mcu7t5v0__nand4_1
+        1   13.171   gf180mcu_fd_sc_mcu7t5v0__nor2_1
+        3   52.685   gf180mcu_fd_sc_mcu7t5v0__nor3_1
+        2   35.123   gf180mcu_fd_sc_mcu7t5v0__oai21_1
+        2   48.294   gf180mcu_fd_sc_mcu7t5v0__oai31_1
+        1   26.342   gf180mcu_fd_sc_mcu7t5v0__or4_1
+
+   Chip area for module '\counter_8bit': 1115.161600
+     of which used for sequential elements: 572.947200 (51.38%)
+
+103. Executing Verilog backend.
+Dumping module `\counter_8bit'.
+
+104. Executing JSON backend.
