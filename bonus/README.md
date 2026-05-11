@@ -41,5 +41,4 @@ librelane config.yaml --manual-pdk
 
 The result should be something like this:
 
-(img/bonus_openroad_1.png)
-
+![OpenROAD GUI](img/bonus_openroad_1.png)
