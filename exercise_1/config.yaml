@@ -1,0 +1,4 @@
+DESIGN_NAME: counter
+VERILOG_FILES: dir::counter.sv
+CLOCK_PORT: clk_i
+CLOCK_PERIOD: 25 # 25ns = 40MHz
